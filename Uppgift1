@@ -1,6 +1,6 @@
 
 const test_curve =
-    t => make_point(t, 0.5 + (math_sin(4 * (math_PI * t)) / 2));
+    t => make_point(t, 0.5 + (math_sin(4 * (math_PI * t)) /2));
 
 function stack(c1, c2) {
     // your answer here
@@ -8,15 +8,13 @@ function stack(c1, c2) {
     
     const curve1 = t => make_point(x_of(c1(t)), y_of(c1(t)));
     
-    const curve2 = t => make_point(x_of(c2(t)), y_of(c2(t)) +0.7);
+    const curve2 = t => make_point(x_of(c2(t)), y_of(c2(t)) + 1.0);
+    const scaled_curve1 = scale(1, 0.5, 1)(curve1);
+    const scaled_curve2 = scale(1, 0.5, 1)(curve2);
     
-    const curves = connect_rigidly(curve1, curve2);
-    const scale_curve = scale_curve(curves);
+    const curves = connect_rigidly(scaled_curve1, scaled_curve2);
+    
     return t => make_point(x_of(curves(t)), y_of(curves(t)));
-    //draw_points(10000)(make_point(x_of(c1), y_of(c1)));
-
-    
-    
     
 }
 

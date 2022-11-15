@@ -5,14 +5,14 @@ const test_curve =
 
 
 
-     const curvenr1 = t => make_point(x_of(c1(t)), y_of(c1(t))+4);
-
-     const curvenr2 = t => make_point(x_of(c2(t)), y_of(c2(t))-1);
+     const curvenr1 = t => make_point(x_of(c1(t)), y_of(c1(t)));
+     
+     const curvenr2 = t => make_point(x_of(c2(t)), y_of(c2(t)));
      
 
-     const scaling_curvenr1 = scale(1, frac, 1)(c1);
+     const scaling_curvenr1 = scale(1, frac, 1)(curvenr1);
 
-     const scaling_curvenr2 = scale(1,1-frac, 1)(c2);
+     const scaling_curvenr2 = scale(1,1-frac, 1)(curvenr2);
      
 
      const curves = connect_rigidly(translate(0, 1-frac, 0)(scaling_curvenr1), (scaling_curvenr2));
